@@ -1,6 +1,6 @@
-import { loadEnv, defineConfig } from '@medusajs/framework/utils'
+import { loadEnv, defineConfig } from "@medusajs/framework/utils";
 
-loadEnv(process.env.NODE_ENV || 'development', process.cwd())
+loadEnv(process.env.NODE_ENV || "development", process.cwd());
 
 module.exports = defineConfig({
   projectConfig: {
@@ -9,7 +9,14 @@ module.exports = defineConfig({
     databaseUrl: process.env.DATABASE_URL,
     http: {
       storeCors: "*", // Дозволяє запити з будь-якого домену (тимчасове рішення)
-    adminCors: "*",
+      adminCors: "*",
+      authCors: process.env.AUTH_CORS!,
+      jwtSecret: process.env.JWT_SECRET || "supersecret",
+      cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+    },
+    https: {
+      storeCors: "*", // Дозволяє запити з будь-якого домену (тимчасове рішення)
+      adminCors: "*",
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
@@ -18,6 +25,6 @@ module.exports = defineConfig({
   admin: {
     disable: process.env.MEDUSA_DISABLE_ADMIN === "true" || false,
     backendUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9000",
-    path: process.env.MEDUSA_ADMIN_PATH || 'app'
-  }
-})
+    path: process.env.MEDUSA_ADMIN_PATH || "/app",
+  },
+});
