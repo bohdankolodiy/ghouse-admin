@@ -15,9 +15,7 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
-  // admin: {
-  //   disable: process.env.MEDUSA_DISABLE_ADMIN === "true" || false,
-  //   backendUrl: process.env.MEDUSA_BACKEND_URL || "http://localhost:9000",
-  //   path: (process.env.MEDUSA_ADMIN_PATH || "/app") as `/${string}`,
-  // },
+  admin: {
+    disable: true
+  },
 });
