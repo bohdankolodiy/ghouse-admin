@@ -12,7 +12,7 @@ module.exports = defineConfig({
       adminCors:
         process.env.ADMIN_CORS || "https://ghouse-admin-nine.vercel.app",
 
-      authCors: process.env.AUTH_CORS!,
+      authCors: process.env.AUTH_CORS || "https://ghouse-admin-nine.vercel.app",
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
