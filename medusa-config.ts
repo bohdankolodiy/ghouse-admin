@@ -18,6 +18,6 @@ module.exports = defineConfig({
   admin: {
     disable: false,
     backendUrl: process.env.MEDUSA_BACKEND_URL,
-    path: "/admin",
+    path: "/",
   },
 });
